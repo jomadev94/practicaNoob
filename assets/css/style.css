@@ -1,3 +1,66 @@
 body {
   font-family: "Shippori Antique", sans-serif;
+  background-color: rgb(44, 42, 42);
+  color:rgb(247, 238, 238);
+  display:grid;
+  grid-template-rows: auto 4fr 2fr;
+  margin-top: 0;
 }
+
+main, footer{
+    padding: 2rem;
+}
+
+img{
+    max-width: 100%;
+}
+
+/* ESTILO MENU (NAV) */
+
+/* LOGO */
+nav img{
+    height: 4rem;
+    padding: 1rem;
+}
+
+header{
+    position: sticky;
+    top: 0;
+}
+
+/* NAV */
+header nav{
+    display: inline-block;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 120px;
+    align-items: center;
+}
+
+/* LISTA DE OPCIONES */
+header nav ul{
+    justify-self: end;
+}
+
+/* CADA OPCION */
+header nav ul li{
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 1rem;
+    font-weight: 800;
+    border-radius: 8px;
+}
+
+/* PRIMERA OPCION */
+header nav ul li:first-child{
+    background-color: rgb(62, 117, 219);
+}
+
+/* SEGUNDA OPCION */
+header nav ul li:last-child{
+    background-color: rgb(29, 34, 44);
+    border: 3px solid rgb(21, 21, 36);
+}
+
+
+
