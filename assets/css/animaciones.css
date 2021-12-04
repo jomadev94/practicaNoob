@@ -1,0 +1,7 @@
+@keyframes flecha-sig-seccion {
+  0% {
+  }
+  100% {
+    transform: translateY(1.5rem);
+  }
+}

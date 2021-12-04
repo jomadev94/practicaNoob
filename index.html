@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script src="/assets/js/peliculas.js" defer></script>
+    <script src="/assets/js/index.js" defer></script>
     <title>Sitio de Prueba</title>
 </head>
 
@@ -25,7 +27,7 @@
         </nav>
     </header>
     <main>
-        <section id="principal">
+        <section id="principal" class="principal">
             <div class="principal__anuncio">
                 <div class="principal__anuncio-box">
                     <h2>UNA MONTAÑA DE ENTRETENIMIENTO.</h2>
@@ -38,21 +40,32 @@
                         <a href="#">INICIAR SESION CON PROVEEDOR</a>
                     </div>
                 </div>
+                <button class="principal__anuncio-flecha"></button>
             </div>
             <video class="principal__fondo" src="assets/video/promo.mp4" loop autoplay muted playsinline
                 data-was-processed="true"></video>
         </section>
-        <section id="exclusivo">
-            <h2>SOMOS ORIGINALES Y EXCLUSIVOS</h2>
-            <p>Disfruta de historias únicas, estrellas icónicas y programas exclusivos que no encontrarás en ningún otro
-                lugar.</p>
-            <div id="exclusivo_carousell"></div>
+        <section id="exclusivo" class="exclusivo">
+            <div class="exclusivo__anuncio">
+                <h2>SOMOS ORIGINALES Y EXCLUSIVOS</h2>
+                <p>Disfruta de historias únicas, estrellas icónicas y programas exclusivos que no encontrarás en ningún
+                    otro
+                    lugar.</p>
+            </div>
+            <div id="exclusivo__carousel" class="exclusivo__carousel">
+                <button role="button" class="exclusivo__carousel-flecha-izq"></button>
+                <div class="exclusivo__carousel-box">
+                    <div class="exclusivo__carousel-content"></div>
+                </div>
+                <button role="button" class="exclusivo__carousel-flecha-der"></button>
+            </div>
+            <div class="exclusivo__controles-carousel"></div>
         </section>
         <section id="otros">
             <h2>TENEMOS TU CONTENIDO FAVORITO</h2>
             <p>Desde películas taquilleras y series reconocidas a tus programas favoritos, en Paramount+ podrás
                 disfrutarlo todo una y otra vez.</p>
-            <div id="otros_carousell"></div>
+            <div id="otros_carousel"></div>
         </section>
         <section id="promocion">
             <div id="promocion_box">

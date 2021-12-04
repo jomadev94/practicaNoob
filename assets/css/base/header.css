@@ -1,0 +1,66 @@
+/* 
+//COMMENT ESTILO DEL HEADER
+*/
+
+header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
+  z-index: 100;
+}
+
+/* NAV */
+header nav {
+  display: inline-block;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 80px;
+  align-items: center;
+}
+
+/* LOGO */
+header nav img {
+  margin-left: var(--nav-margin-logo);
+  height: var(--nav-height-logo);
+  object-fit: scale-down;
+}
+
+/* LISTA DE OPCIONES */
+header nav ul {
+  justify-self: end;
+  margin-right: var(--nav-margin-option);
+}
+
+/* CADA OPCION */
+header nav ul li {
+  display: inline-block;
+}
+
+header nav ul li a {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 800;
+  border-radius: var(--borde-radio);
+  text-decoration: none;
+  color: var(--color-letra);
+  border: 0.1rem solid;
+  font-size: var(--nav-fs);
+}
+
+/* PRIMERA OPCION */
+header nav ul li:first-child a {
+  background-color: var(--color-opcion-principal);
+  border-color: rgb(39, 61, 180);
+}
+
+/* SEGUNDA OPCION */
+header nav ul li:not(:first-child) a {
+  background-color: var(--color-opcion-secundaria);
+  border-color: rgb(21, 21, 36);
+}
+
+header nav ul li:not(:first-child) a:hover {
+  background-color: white;
+  color: black;
+  border-color: white;
+}

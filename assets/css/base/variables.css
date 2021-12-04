@@ -1,0 +1,36 @@
+/* 
+//COMMENT VARIABLES GLOBALES
+*/
+:root {
+    /* GENERAL */
+    --fs-p: 1.2rem;
+    --fs-h2: 3rem;
+  
+    /* COLOR */
+    --color-fondo: rgb(44, 42, 42);
+    --color-letra: rgb(247, 238, 238);
+    --color-opcion-principal: rgba(62, 117, 219, 0.6);
+    --color-opcion-secundaria: rgb(29, 34, 44, 0.6);
+    --color-opcion-activada: blue;
+  
+    /* BOTONES */
+    --borde-radio: 0.5rem;
+  
+    /* MENU DE NAVEGACION */
+    --nav-height-logo: 3rem;
+    --nav-fs: 1rem;
+    --nav-margin-logo: 2rem;
+    --nav-margin-option: 2rem;
+  
+    /* PRINCIPAL */
+    --principal-fs-h2: 3rem;
+    --principal-fs-p: 1.2rem;
+    --principal-fs-a: 1.2rem;
+    --principal-fs-max-widht: 30rem;
+    --principal-max-widht: 32rem;
+    --altura-principal: calc(100vh - 80px);
+    --altura-secciones: calc(100vh);
+  
+    /* CAROUSEL */
+    --cant-carousel: 5;
+  }
