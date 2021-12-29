@@ -1,0 +1,82 @@
+//COMMENT ESTILO DEL HEADER
+
+@use "variables";
+@use "queries";
+
+header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
+  z-index: 100;
+
+  // NAV
+  nav {
+    display: inline-block;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 80px;
+    align-items: center;
+
+    // LOGO
+    img {
+      margin-left: variables.$nav-margin-logo;
+      height: variables.$nav-height-logo;
+      object-fit: scale-down;
+
+      @include queries.media-down(sm){
+        height:variables.$nav-height-logo-sm;
+        margin-left: variables.$nav-margin-logo-sm;
+      }
+
+    }
+
+    // LISTA DE OPCIONES
+    ul {
+      justify-self: end;
+      margin-right: variables.$nav-margin-option;
+
+      @include queries.media-down(sm){
+        margin-right: variables.$nav-margin-option-sm;
+      }
+
+      // CADA OPCION
+      li {
+        display: inline-block;
+
+        // PRIMERA OPCION
+        &:first-child a {
+          background-color: variables.$color-opcion-principal;
+          border-color: rgb(39, 61, 180);
+        }
+
+        // EL RESTO DE OPCIONES
+        &:not(:first-child) a {
+          background-color: variables.$color-opcion-secundaria;
+          border-color: rgb(21, 21, 36);
+        }
+
+        &:not(:first-child) a:hover {
+          background-color: white;
+          color: black;
+          border-color: white;
+        }
+
+        a {
+          margin-left: 1rem;
+          padding: 0.5rem 1rem;
+          font-weight: 800;
+          border-radius: variables.$borde-radio;
+          text-decoration: none;
+          color: variables.$color-letra;
+          border: 0.1rem solid;
+          font-size: variables.$nav-fs;
+
+          @include queries.media-down(sm){
+            display: none;
+          }
+
+        }
+      }
+    }
+  }
+}

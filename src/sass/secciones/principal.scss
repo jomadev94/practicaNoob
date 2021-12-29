@@ -1,0 +1,122 @@
+@use "../base/variables";
+@use "../animaciones";
+@use "../base/queries";
+
+//COMMENT SECCION PRINCIPAL
+
+.principal__fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.principal__anuncio {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 50;
+  justify-content: flex-end;
+
+  .principal__anuncio-box {
+    max-width: variables.$principal-max-width;
+    min-width: 20%;
+    max-height: 75%;
+    min-height: min(40%, 80rem);
+    background-color: rgba(0, 0, 0, 0.459);
+    border-radius: variables.$borde-radio;
+    padding: 2rem;
+    margin: 0rem 2rem 2rem 2rem;
+
+    @include queries.media-down(sm){
+      max-width: variables.$principal-max-width-sm;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: variables.$principal-fs-h2;
+    }
+
+    p {
+      font-size: variables.$principal-fs-p;
+    }
+
+    .principal__anuncio-box-opciones {
+      display: flex;
+      padding: 0;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      justify-content: space-between;
+
+      a {
+        text-decoration: none;
+        color: variables.$color-letra;
+        font-size: variables.$principal-fs-a;
+        border-radius: variables.$borde-radio;
+        padding: 1rem;
+        margin-top: 0.8rem;
+        transition: ease-in 0.3s;
+
+        &:first-child {
+          background: linear-gradient(
+            to right,
+            rgb(3, 11, 58),
+            variables.$color-opcion-principal
+          );
+
+          &:hover {
+            filter: brightness(150%);
+          }
+        }
+
+        &:not(:first-child) {
+          background-color: black;
+
+          &:hover {
+            background-color: white;
+            color: black;
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+.principal__anuncio-flecha {
+  position: absolute;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  padding: 1.6rem;
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.644);
+  background-size: auto;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border: none;
+  margin-bottom: 2.5rem;
+  align-self: center;
+  display: inline-block;
+  background-image: url("/public/assets/img/flecha.svg");
+  animation: flecha-sig-seccion 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.89, 0.72, 0.64, 0.93);
+  box-shadow: 5px 5px 10px 3px black;
+
+  @include queries.media-down(md){
+    display: none;
+  }
+
+}
+
+
+

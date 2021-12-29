@@ -1,0 +1,30 @@
+// BREAKPOINTS
+$breakpoints:(
+    sm:900px,
+    md:1300px,
+    lg:1600px,
+);
+
+@mixin media-up($break){
+    
+    // VALIDA QUE EL PARAMETRO SEA CORRECTO
+    @if not map-has-key($breakpoints,$break) {
+        @warn "El valor #{break} no ha sido declarado como breakpoint";
+    }
+    
+    @media only screen and (min-width: map-get($breakpoints,$break)){
+        @content;        
+    }
+}
+
+@mixin media-down($break){
+    
+    // VALIDA QUE EL PARAMETRO SEA CORRECTO
+    @if not map-has-key($breakpoints,$break) {
+        @warn "El valor #{break} no ha sido declarado como breakpoint";
+    }
+    
+    @media only screen and (max-width: map-get($breakpoints,$break)){
+        @content;        
+    }
+}

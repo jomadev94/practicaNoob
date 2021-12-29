@@ -6,20 +6,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./public/assets/img/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <script src="/assets/js/peliculas.js" defer></script>
-    <script src="/assets/js/index.js" defer></script>
+    <link rel="stylesheet" href="./public/assets/css/index.css">
+    <script src="./public/assets/js/peliculas.js" defer></script>
+    <script src="./public/assets/js/index.js" defer></script>
     <title>Sitio de Prueba</title>
 </head>
 
 <body>
     <header>
         <nav>
-            <img src="assets/img/logo.svg" alt="Logo del servicio">
+            <img src="./public/assets/img/logo.svg" alt="Logo del servicio">
             <ul>
                 <li><a href="#">SUSCRIBITE</a></li>
                 <li><a href="#">INICIAR SESION</a></li>
@@ -42,7 +42,7 @@
                 </div>
                 <button class="principal__anuncio-flecha"></button>
             </div>
-            <video class="principal__fondo" src="assets/video/promo.mp4" loop autoplay muted playsinline
+            <video class="principal__fondo" src="./public/assets/video/promo.mp4" loop autoplay muted playsinline
                 data-was-processed="true"></video>
         </section>
         <section id="exclusivo" class="exclusivo">
@@ -53,15 +53,20 @@
                     lugar.</p>
             </div>
             <div id="exclusivo__carousel" class="exclusivo__carousel">
-                <button role="button" class="exclusivo__carousel-flecha-izq"></button>
-                <div class="exclusivo__carousel-box">
-                    <div class="exclusivo__carousel-content"></div>
+                <div class="exclusivo__carousel-manager">
+                    <button role="button" class="exclusivo__carousel-flecha-izq"><i
+                            class="fas fa-arrow-left"></i></button>
+                    <div class="exclusivo__carousel-box">
+                        <div class="exclusivo__carousel-content"></div>
+                    </div>
+                    <button role="button" class="exclusivo__carousel-flecha-der"><i
+                            class="fas fa-arrow-right"></i></button>
                 </div>
-                <button role="button" class="exclusivo__carousel-flecha-der"></button>
             </div>
-            <div class="exclusivo__controles-carousel"></div>
+            <div class="exclusivo__carousel-controles"></div>
+            <button class="principal__anuncio-flecha"></button>
         </section>
-        <section id="otros">
+        <section id="favoritos">
             <h2>TENEMOS TU CONTENIDO FAVORITO</h2>
             <p>Desde películas taquilleras y series reconocidas a tus programas favoritos, en Paramount+ podrás
                 disfrutarlo todo una y otra vez.</p>
@@ -70,7 +75,7 @@
         <section id="promocion">
             <div id="promocion_box">
                 <p>Con Combo+, aprovechá lo mejor de Disney+ y Star+ a un precio único.</p>
-                <img src="assets/img/promo.jpg" alt="imagen de promocion">
+                <img src="./public/assets/img/promo.jpg" alt="imagen de promocion">
                 <button>SUSCRIBIRME POR ARS 995.00 (FINAL)*</button>
                 <small>* El precio podría variar en caso de que el pago se realice en otras plataformas. Podrían aplicar
                     cargos de terceros.</small>
@@ -79,7 +84,7 @@
             </div>
         </section>
         <section id="contacto">
-            <img src="assets/img/contacto.jpeg" alt="imagen contacto">
+            <img src="./public/assets/img/contacto.jpeg" alt="imagen contacto">
             <div>
                 <h2>Comunicate con nosotros</h2>
                 <form action="#" method="post">
@@ -95,7 +100,7 @@
         <h3>Disponible en tus dispositivos favoritos</h3>
         <div>
             <div>
-                <img src="assets/img/tv.png" alt="televisores">
+                <img src="./public/assets/img/tv.png" alt="televisores">
                 <title>TV</title>
                 <ul>
                     <li>Amazon Fire TV</li>
@@ -108,7 +113,7 @@
                 </ul>
             </div>
             <div>
-                <img src="assets/img/pc.png" alt="pc">
+                <img src="./public/assets/img/pc.png" alt="pc">
                 <title>Computadoras</title>
                 <ul>
                     <li>Chrome OS</li>
@@ -117,7 +122,7 @@
                 </ul>
             </div>
             <div>
-                <img src="assets/img/mobil.png" alt="celulares">
+                <img src="./public/assets/img/mobil.png" alt="celulares">
                 <title>Celulares y tabletas</title>
                 <ul>
                     <li>Tabletas Amazon Fire</li>
@@ -126,7 +131,7 @@
                 </ul>
             </div>
             <div>
-                <img src="assets/img/consola.png" alt="consola">
+                <img src="./public/assets/img/consola.png" alt="consola">
                 <title>Consolas</title>
                 <ul>
                     <li>PS4</li>
@@ -137,7 +142,7 @@
                 </ul>
             </div>
         </div>
-        <img src="assets/img/logo.svg" alt="logo chico">
+        <img src="./public/assets/img/logo.svg" alt="logo chico">
         <nav>
             <ul>
                 <li>Idioma</li>
