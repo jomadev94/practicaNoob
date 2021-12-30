@@ -15,13 +15,13 @@ const flechaExclusivoDer: HTMLElement = document.querySelector(
 flechaExclusivoDer.addEventListener("click", () => {
   contenedorCarousel.scrollLeft += contenedorCarousel.offsetWidth;
   const indicadorActivo: HTMLElement = document.querySelector(
-    ".exclusivo__carousel-controles-activo"
+    ".pagina-activa"
   );
   if (indicadorActivo.nextSibling) {
-    indicadorActivo.classList.remove("exclusivo__carousel-controles-activo");
+    indicadorActivo.classList.remove("pagina-activa");
     const next= indicadorActivo.nextSibling as HTMLElement;
     next.classList.add(
-      "exclusivo__carousel-controles-activo"
+      "pagina-activa"
     );
   }
 });
@@ -30,13 +30,13 @@ flechaExclusivoDer.addEventListener("click", () => {
 flechaExclusivoIzq.addEventListener("click", () => {
   contenedorCarousel.scrollLeft -= contenedorCarousel.offsetWidth;
   const indicadorActivo = document.querySelector(
-    ".exclusivo__carousel-controles-activo"
+    ".pagina-activa"
   );
   if (indicadorActivo.previousSibling) {
-    indicadorActivo.classList.remove("exclusivo__carousel-controles-activo");
+    indicadorActivo.classList.remove("pagina-activa");
     const previous= indicadorActivo.previousSibling as HTMLElement;
     previous.classList.add(
-      "exclusivo__carousel-controles-activo"
+      "pagina-activa"
     );
   }
 });
@@ -68,7 +68,8 @@ async function crearImgCarousel(page:number = 1):Promise<boolean> {
       infoPelis.forEach((peli:Pelicula) => {
         contenedorImg.innerHTML += `
             <div class='exclusivo__carousel-content-pelicula'>
-                <img src='https://image.tmdb.org/t/p/original${peli.poster_path}' alt='${peli.title}'>
+              <div class='exclusivo__carousel-content-pelicula-overlay'></div>
+              <img src='https://image.tmdb.org/t/p/original${peli.poster_path}' alt='${peli.title}'>
             </div>
           `;
       });
@@ -87,14 +88,14 @@ function paginacion():void{
     ".exclusivo__carousel-content-pelicula"
   );
   const numeroPaginas:number = Math.ceil(peliculas.length / 5);
-  const indicadores = document.querySelector(".exclusivo__carousel-controles");
+  const indicadores = document.querySelector(".exclusivo__carousel-paginacion");
 
   // CREO LOS INDICADORES SEGUN LA CANTIDAD DE PAGINAS
   for (let index = 0; index < numeroPaginas; index++) {
     const elem = document.createElement("button");
     elem.setAttribute("value", index.toString());
     if (index === 0) {
-      elem.classList.add("exclusivo__carousel-controles-activo");
+      elem.classList.add("pagina-activa");
     }
     indicadores.appendChild(elem);
   }
@@ -104,9 +105,9 @@ function paginacion():void{
     const target:HTMLButtonElement= event.target as HTMLButtonElement;
     if (target && target.tagName === "BUTTON") {
       document
-        .querySelector(".exclusivo__carousel-controles-activo")
-        .classList.remove("exclusivo__carousel-controles-activo");
-      target.classList.add("exclusivo__carousel-controles-activo");
+        .querySelector(".pagina-activa")
+        .classList.remove("pagina-activa");
+      target.classList.add("pagina-activa");
       const pag:number = parseInt(target.value);
       contenedorCarousel.scrollLeft = pag * contenedorCarousel.offsetWidth;
     }

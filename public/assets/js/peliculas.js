@@ -16,21 +16,21 @@ const flechaExclusivoDer = document.querySelector(".exclusivo__carousel-flecha-d
 //EVENT EVENTO FLECHA DER
 flechaExclusivoDer.addEventListener("click", () => {
     contenedorCarousel.scrollLeft += contenedorCarousel.offsetWidth;
-    const indicadorActivo = document.querySelector(".exclusivo__carousel-controles-activo");
+    const indicadorActivo = document.querySelector(".pagina-activa");
     if (indicadorActivo.nextSibling) {
-        indicadorActivo.classList.remove("exclusivo__carousel-controles-activo");
+        indicadorActivo.classList.remove("pagina-activa");
         const next = indicadorActivo.nextSibling;
-        next.classList.add("exclusivo__carousel-controles-activo");
+        next.classList.add("pagina-activa");
     }
 });
 //EVENT EVENTO FLECHA IZQ
 flechaExclusivoIzq.addEventListener("click", () => {
     contenedorCarousel.scrollLeft -= contenedorCarousel.offsetWidth;
-    const indicadorActivo = document.querySelector(".exclusivo__carousel-controles-activo");
+    const indicadorActivo = document.querySelector(".pagina-activa");
     if (indicadorActivo.previousSibling) {
-        indicadorActivo.classList.remove("exclusivo__carousel-controles-activo");
+        indicadorActivo.classList.remove("pagina-activa");
         const previous = indicadorActivo.previousSibling;
-        previous.classList.add("exclusivo__carousel-controles-activo");
+        previous.classList.add("pagina-activa");
     }
 });
 //FUNCTION OBTENER INFO PARA CAROUSEL
@@ -59,7 +59,8 @@ function crearImgCarousel(page = 1) {
                 infoPelis.forEach((peli) => {
                     contenedorImg.innerHTML += `
             <div class='exclusivo__carousel-content-pelicula'>
-                <img src='https://image.tmdb.org/t/p/original${peli.poster_path}' alt='${peli.title}'>
+              <div class='exclusivo__carousel-content-pelicula-overlay'></div>
+              <img src='https://image.tmdb.org/t/p/original${peli.poster_path}' alt='${peli.title}'>
             </div>
           `;
                 });
@@ -77,13 +78,13 @@ function paginacion() {
     // ME GUARDO LOS ELEMENTOS NECESARIOS
     const peliculas = document.querySelectorAll(".exclusivo__carousel-content-pelicula");
     const numeroPaginas = Math.ceil(peliculas.length / 5);
-    const indicadores = document.querySelector(".exclusivo__carousel-controles");
+    const indicadores = document.querySelector(".exclusivo__carousel-paginacion");
     // CREO LOS INDICADORES SEGUN LA CANTIDAD DE PAGINAS
     for (let index = 0; index < numeroPaginas; index++) {
         const elem = document.createElement("button");
         elem.setAttribute("value", index.toString());
         if (index === 0) {
-            elem.classList.add("exclusivo__carousel-controles-activo");
+            elem.classList.add("pagina-activa");
         }
         indicadores.appendChild(elem);
     }
@@ -92,9 +93,9 @@ function paginacion() {
         const target = event.target;
         if (target && target.tagName === "BUTTON") {
             document
-                .querySelector(".exclusivo__carousel-controles-activo")
-                .classList.remove("exclusivo__carousel-controles-activo");
-            target.classList.add("exclusivo__carousel-controles-activo");
+                .querySelector(".pagina-activa")
+                .classList.remove("pagina-activa");
+            target.classList.add("pagina-activa");
             const pag = parseInt(target.value);
             contenedorCarousel.scrollLeft = pag * contenedorCarousel.offsetWidth;
         }
