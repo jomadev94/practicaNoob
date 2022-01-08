@@ -1,38 +1,53 @@
-enum Secciones {
-  "exclusivo",
-  "favoritos",
-  "promocion",
-  "contacto",
-}
+const header: HTMLElement = document.querySelector("header");
+const seccionBreak: HTMLElement = document.getElementById("principal");
+const toAnimate: NodeList= document.querySelectorAll(".animate");
+const letters: HTMLElement= document.querySelector(".promocion__anuncio-oferta-down");
+const cards: HTMLElement= document.querySelector(".dispositivos__box");
 
-//COMMENT FLECHAS PARA PASAR A LA SIG SECCION
-const flechasNavegacion: NodeList =
-  document.querySelectorAll(".seccion-flecha");
+cards.addEventListener("click",(event)=>{
+  const element= event.target as HTMLElement;
+  console.log(element);
+  if(element && element.classList.contains("dispositivos__box-card")){
+    console.log("ieeeeepaaaa");
+  }
+})
 
-//FUNCTION NAVEGA A LA SIGUIENTE SECCION
-function irSeccion(idSeccion: string): void {
-  const offsetTop: number = document.getElementById(idSeccion).offsetTop;
-  scroll({
-    top: offsetTop,
-    behavior: "smooth",
-  });
-}
-
-//EVENT CLICK FLECHA DE SECCION
-flechasNavegacion.forEach((flecha, index) => {
-  const elem = flecha as HTMLElement;
-  if (elem.tagName == "BUTTON") {
-    elem.addEventListener("click", () => {
-      irSeccion(Secciones[index]);
-    });
+letters.addEventListener("mouseover",(event)=>{
+  const element: HTMLElement= event.target as HTMLElement;
+  if(element && element.tagName==="SPAN"){
+    element.classList.add("toAnimate");
+    setTimeout(()=>{
+      element.classList.remove("toAnimate");
+    },1500)
   }
 });
 
-const header: HTMLElement = document.querySelector("header");
-const seccionBreak: HTMLElement = document.getElementById("principal");
 const options = {
   rootMargin:"-80px"
 };
+
+const optionsAppear={
+  // threshold:.6,
+  rootMargin:"-140px"
+}
+
+const appearOnScroll: IntersectionObserver= new IntersectionObserver(
+  (entries,appearOnScroll)=>{
+    entries.forEach((entry)=>{
+      entry.target.classList.add("appear");
+      if(!entry.isIntersecting){
+        entry.target.classList.remove("appear");
+      }
+      // appearOnScroll.unobserve(entry.target);
+    })
+  },optionsAppear
+);
+
+toAnimate.forEach(
+  (elem)=>{
+    appearOnScroll.observe(elem as Element);
+  }
+);
 
 const breakObserver: IntersectionObserver = new IntersectionObserver(
   (entries, breakObserver) => {

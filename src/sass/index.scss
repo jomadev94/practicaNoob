@@ -1,8 +1,12 @@
 
-@use "./base/variables";
-@use "./base/header.scss";
-@use "./secciones/principal.scss";
-@use "./secciones/exclusivo.scss";
-@use "./base/default.scss";
 @use "./fontawesome/fontawesome.scss";
 @use "./fontawesome/solid.scss";
+@use "./util/bottons";
+@use "./layout/default.scss";
+@use "./layout/header.scss";
+@use "./secciones/principal.scss";
+@use "./secciones/exclusivo.scss";
+@use "./secciones/favoritos.scss";
+@use "./secciones/promocion.scss";
+@use "./secciones/dispositivos.scss";
+

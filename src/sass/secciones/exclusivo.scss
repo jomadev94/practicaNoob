@@ -1,29 +1,35 @@
-@use "../base/variables";
-@use "../base/queries";
+@use "../util/variables";
+@use "../util/queries";
+@use "../util/transiciones";
 @use "./carousel.scss";
+
 
 //COMMENT SECCION EXCLUSIVO
 
 .exclusivo {
+  display: flex;
+  flex-direction: column;
+  z-index: 21;
+}
+
+.exclusivo__fondo{
   background: linear-gradient(to right, black, transparent),
     url("/public/assets/img/promo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  padding: 80px 2rem 2rem 2rem;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 .exclusivo__anuncio {
+
   width: 40%;
 
-  h2 {
-    font-size: variables.$seccion-fs-h2;
-    margin-bottom: 0;
-  }
-
-  p {
-    font-size: variables.$seccion-fs-p;
+  &.animate{
+    @include transiciones.translate("x",-40%);
   }
 
   @include queries.media-down(md) {

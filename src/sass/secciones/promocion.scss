@@ -1,0 +1,162 @@
+@use "../util/transiciones";
+@use "../util/variables";
+@use "../util/bottons";
+@use "../util/queries";
+
+.promocion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: variables.$color-fondo;
+
+  @include queries.media-down(sm){
+    flex-wrap: wrap-reverse;
+    align-items: stretch;
+  }
+}
+
+.promocion__hojas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    animation: caidaHojas 3.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    width: 200px;
+    height: auto; 
+
+    &:nth-child(3n){
+      animation-delay: 2s;
+      width: 160px;
+      height: 80px;
+    }
+
+    &:nth-child(8),&:nth-child(1){
+      animation-delay: 1s;
+      width: 260px;
+      height: 180px;
+    }
+
+    &:nth-child(2),&:nth-child(5){
+      width: 220px;
+      height: 100px;
+    }
+
+    
+    &:nth-child(4),&:nth-child(7){
+      animation-delay: 3s;
+      width: 80px;
+      height: 40px;
+    }
+
+  }
+}
+
+.promocion__anuncio {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-right: 4rem;
+
+  &.animate {
+    @include transiciones.translate("x", -20%);
+  }
+
+  a {
+    @extend %botonPrincipal;
+    margin-top: 1rem;
+  }
+
+  @include queries.media-down(sm){
+    width: 100%;
+    // height: 60%;
+    margin-right: 0;
+    text-align: left;
+  }
+
+}
+
+.promocion__anuncio-oferta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.promocion__anuncio-oferta-up,
+.promocion__anuncio-oferta-down {
+  line-height: 0.9;
+  margin: 0;
+  span {
+    display: inline-block;
+  }
+}
+
+.promocion__anuncio-oferta-up {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+}
+
+.promocion__anuncio-oferta-up-indice {
+  &::after {
+    content: "er";
+    text-transform: uppercase;
+    font-size: 10px;
+    vertical-align: super;
+    margin-right: 10px;
+  }
+}
+
+.promocion__anuncio-oferta-down {
+  font-weight: 600;
+  font-size: clamp(3.8rem, 10vw, 10rem);
+  letter-spacing: max(-30px, -1.5vmin);
+
+  span {
+    &.toAnimate {
+      animation: jello-horizontal 1.5s ease-in-out;
+    }
+  }
+}
+
+.promocion__anuncio-aclaracion {
+  display: block;
+  margin: 0.5rem 0;
+
+  &::before {
+    content: "*";
+    font-size: clamp(5px, 2vw, 25px);
+    color: rgb(99, 101, 228);
+  }
+}
+
+.promocion__personaje-box {
+  width: 33%;
+
+  &.animate {
+    @include transiciones.translate("y", -100%, 2s);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    animation: caida 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+
+  @include queries.media-down(sm){
+    width: 100%;
+    height: 40%;
+  }
+}

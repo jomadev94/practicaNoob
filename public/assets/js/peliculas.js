@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 //COMMENT CONSTANTES GLOBALES
 const contenedorCarousel = document.querySelector(".exclusivo__carousel-box");
+const contenedorGrid = document.querySelector(".favoritos__box");
 //COMMENT FLECHAS DE DESPLAZAMIENTO
 const flechaExclusivoIzq = document.querySelector(".exclusivo__carousel-flecha-izq");
 const flechaExclusivoDer = document.querySelector(".exclusivo__carousel-flecha-der");
@@ -59,7 +60,6 @@ function crearImgCarousel(page = 1) {
                 infoPelis.forEach((peli) => {
                     contenedorImg.innerHTML += `
             <div class='exclusivo__carousel-content-pelicula'>
-              <div class='exclusivo__carousel-content-pelicula-overlay'></div>
               <img src='https://image.tmdb.org/t/p/original${peli.poster_path}' alt='${peli.title}'>
             </div>
           `;
@@ -72,6 +72,37 @@ function crearImgCarousel(page = 1) {
             console.log(error);
         }
     });
+}
+//FUNCTION CARGAR IMAGENES DEL GRID
+function crearImgGrid(page = 1, contenedor, diferent = 9999999, max = 7) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const infoPelis = yield obtener(page);
+            if (infoPelis.length > 0 && max <= infoPelis.length) {
+                for (let index = 0; index < max; index++) {
+                    if (index === diferent) {
+                        addImgHTML(contenedor, "favoritos__item modified animate", "favoritos__item-text modified", infoPelis, index);
+                        continue;
+                    }
+                    addImgHTML(contenedor, "favoritos__item animate", "favoritos__item-text", infoPelis, index);
+                }
+                return true;
+            }
+            return false;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+//FUNCTION ADD HTML IMG
+function addImgHTML(contenedor, claseContenedor, claseTexto, pelis, index) {
+    contenedor.innerHTML += `
+    <div class='${claseContenedor}'>
+      <div class='${claseTexto}'><h3>${pelis[index].title}</h3></div>
+      <img src='https://image.tmdb.org/t/p/original${pelis[index].poster_path}' alt='${pelis[index].title}'>
+    </div>
+  `;
 }
 //FUNCTION CREAR INDICADORES PARA LA PAGINACION
 function paginacion() {
@@ -115,4 +146,22 @@ function init(page = 1) {
         }
     });
 }
+//FUNCTION INICIALIZAR UN GRID
+function initGrid(page = 1, contenedor, diferent) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const crearGrid = yield crearImgGrid(page, contenedor, diferent);
+            if (crearGrid) {
+                const toAnimate = document.querySelectorAll(".animate");
+                toAnimate.forEach((elem) => {
+                    appearOnScroll.observe(elem);
+                });
+            }
+        }
+        catch (error) {
+            console.log("No se pudo inicializar la app");
+        }
+    });
+}
 init();
+initGrid(3, contenedorGrid, 1);

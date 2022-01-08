@@ -5,7 +5,7 @@ $fs-p: 1.2rem;
 $fs-h2: 3rem;
 
 // COLOR
-$color-fondo: rgb(44, 42, 42);
+$color-fondo: rgb(12, 23, 75);
 $color-letra: rgb(247, 238, 238);
 $color-opcion-principal: rgba(62, 117, 219, 0.6);
 $color-opcion-secundaria: rgb(29, 34, 44, 0.6);
@@ -24,17 +24,20 @@ $nav-margin-option: 2rem;
 $nav-margin-option-sm: 1rem;
 
 // PRINCIPAL
-$principal-fs-h2: min(4vmin, 3.5rem);
-$principal-fs-p: min(2.5vmin, 1.3rem);
-$principal-fs-a: min(2.5vmin, 1.3rem);
+$principal-fs-h2: clamp(1.5rem,4vmin,3rem);
+$principal-fs-p: clamp(1rem,2.5vmin,1.4rem);
+$principal-fs-a: clamp(.8rem,2.5vmin,1.2rem);
+$principal-height: clamp(800px,1100px,100vh - 80px);
 $principal-max-width: max(50vmin, 20%);
 $principal-max-width-sm: 100%;
-$altura-principal: calc(100vh - 80px);
+// $altura-principal: ;
 $altura-secciones: 100vh;
 
 // SECCIONES
-$seccion-fs-h2: min(6vw, 3rem);
-$seccion-fs-p: min(3vw, 1.4rem);
+$seccion-fs-h2: clamp(1.5rem,4.5vmin,4rem);
+$seccion-fs-h3: clamp(1.2rem,3vmin,2rem);
+$seccion-fs-p: clamp(1rem,2vw,1.6rem);
+$seccion-height: clamp(800px,1100px,100vh - (80px + 2rem));
 
 
 // CAROUSEL

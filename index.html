@@ -40,19 +40,22 @@
                         <a href="#">INICIAR SESION CON PROVEEDOR</a>
                     </div>
                 </div>
-                <button class="seccion-flecha"></button>
+            </div>
+            <div class="flecha-box">
+                <a class="seccion-flecha" href="#exclusivo"></a>
             </div>
             <video class="principal__fondo" src="./public/assets/video/promo.mp4" loop autoplay muted playsinline
                 data-was-processed="true"></video>
         </section>
         <section id="exclusivo" class="exclusivo">
-            <div class="exclusivo__anuncio">
+            <div class="exclusivo__fondo"></div>
+            <div class="exclusivo__anuncio animate">
                 <h2>SOMOS ORIGINALES Y EXCLUSIVOS</h2>
                 <p>Disfruta de historias únicas, estrellas icónicas y programas exclusivos que no encontrarás en ningún
                     otro
                     lugar.</p>
             </div>
-            <div id="exclusivo__carousel" class="exclusivo__carousel">
+            <div id="exclusivo__carousel" class="exclusivo__carousel animate">
                 <div class="exclusivo__carousel-paginacion"></div>
                 <div class="exclusivo__carousel-player">
                     <button role="button" class="exclusivo__carousel-flecha-izq"><i
@@ -64,84 +67,132 @@
                             class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
-            <button class="seccion-flecha"></button>
-        </section>
-        <section id="favoritos">
-            <h2>TENEMOS TU CONTENIDO FAVORITO</h2>
-            <p>Desde películas taquilleras y series reconocidas a tus programas favoritos, en Paramount+ podrás
-                disfrutarlo todo una y otra vez.</p>
-            <div id="otros_carousel"></div>
-        </section>
-        <section id="promocion">
-            <div id="promocion_box">
-                <p>Con Combo+, aprovechá lo mejor de Disney+ y Star+ a un precio único.</p>
-                <img src="./public/assets/img/promo.jpg" alt="imagen de promocion">
-                <button>SUSCRIBIRME POR ARS 995.00 (FINAL)*</button>
-                <small>* El precio podría variar en caso de que el pago se realice en otras plataformas. Podrían aplicar
-                    cargos de terceros.</small>
-                <a href="#">Suscibirme YA</a>
-                <span>ARS 385/mes (final)* o ARS 3.850/año (final)*</span>
+            <div class="flecha-box">
+                <a class="seccion-flecha" href="#favoritos"></a>
             </div>
         </section>
-        <section id="contacto">
-            <img src="./public/assets/img/contacto.jpeg" alt="imagen contacto">
-            <div>
-                <h2>Comunicate con nosotros</h2>
-                <form action="#" method="post">
-                    <label for="correo">Ingresa tu correo electronico:</label>
-                    <input type="text" id="correo" name="correo">
-                    <label for="consulta">Dejanos tu consulta:</label>
-                    <textarea name="consulta" id="consulta" cols="30" rows="10"></textarea>
-                </form>
+        <section id="favoritos" class="favoritos">
+            <div class="favoritos__fondo"></div>
+            <div class="favoritos__anuncio animate">
+                <h2>TENEMOS TU CONTENIDO FAVORITO</h2>
+                <p>Desde películas taquilleras y series reconocidas a tus programas favoritos, en Paramount+ podrás
+                    disfrutarlo todo una y otra vez.</p>
+            </div>
+            <div class="favoritos__marco">
+                <div class="favoritos__box"></div>
+            </div>
+            <div class="flecha-box">
+                <a class="seccion-flecha" href="#promocion"></a>
+            </div>
+        </section>
+        <section id="promocion" class="promocion">
+            <div class="promocion__hojas">
+                <img src="./public/assets/img/hoja.png" alt="hoja de un arbol">
+                <img src="./public/assets/img/hoja.png" alt="hoja de un arbol">
+                <img src="./public/assets/img/hoja.png" alt="hoja de un arbol">
+                <img src="./public/assets/img/hoja.png" alt="hoja de un arbol">
+                <img src="./public/assets/img/hoja.png" alt="hoja de un arbol">
+                <img src="./public/assets/img/hoja.png" alt="hoja de un arbol">
+                <img src="./public/assets/img/hoja.png" alt="hoja de un arbol">
+                <img src="./public/assets/img/hoja.png" alt="hoja de un arbol">
+            </div>
+            <div class="promocion__anuncio animate">
+                <h2>DESCUENTO</h2>
+                <p>Con Combo+, aprovechá lo mejor de Disney+ y Star+ a un precio único.</p>
+                <div class="promocion__anuncio-oferta">
+                    <h3 class="promocion__anuncio-oferta-up">
+                        <span class="promocion__anuncio-oferta-up-indice">1</span><span> MES</span>
+                    </h3>
+                    <h3 class="promocion__anuncio-oferta-down">
+                        <span>-</span>
+                        <span>5</span>
+                        <span>0</span>
+                        <span>%</span>
+                    </h3>
+                </div>
+                <a class="botonPrincipal" href="#">Ver todos los planes</a>
+                <small class="promocion__anuncio-aclaracion"> El precio podría variar en caso de que el pago se realice
+                    en otras plataformas. Podrían aplicar
+                    cargos de terceros. ARS 385/mes o ARS 3.850/año</small>
+            </div>
+            <div class="promocion__personaje-box animate">
+                <img src="./public/assets/img/promocion.png" alt="imagen de promocion">
+            </div>
+            <div class="flecha-box">
+                <a class="seccion-flecha" href="#dispositivos"></a>
+            </div>
+        </section>
+        <section id="dispositivos" class="dispositivos">
+            <div class="dispositivos__anuncio animate">
+                <h2>Disponible en tus dispositivos favoritos</h2>
+            </div>
+            <div class="dispositivos__box">
+                <div class="dispositivos__box-card">
+                    <div class="dispositivos__box-card-front">
+                        <img src="./public/assets/img/tv.png" alt="televisores">
+                        <h3>TV</h3>
+                        <div class="dispositivos__box-card-fondo"></div>
+                    </div>
+                    <div class="dispositivos__box-card-back">
+                        <ul>
+                            <li>Amazon Fire TV</li>
+                            <li>Android TV</li>
+                            <li>Apple TV</li>
+                            <li>Chromecast</li>
+                            <li>LG</li>
+                            <li>Roku</li>
+                            <li>Samsung</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dispositivos__box-card">
+                    <div class="dispositivos__box-card-front">
+                        <img src="./public/assets/img/pc.png" alt="pc">
+                        <h3>Computadoras</h3>
+                        <div class="dispositivos__box-card-fondo"></div>
+                    </div>
+                    <div class="dispositivos__box-card-back">
+                        <ul>
+                            <li>Chrome OS</li>
+                            <li>Mac OS</li>
+                            <li>PC Windows</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dispositivos__box-card">
+                    <div class="dispositivos__box-card-front">
+                        <img src="./public/assets/img/mobil.png" alt="celulares">
+                        <h3>Movil</h3>
+                        <div class="dispositivos__box-card-fondo"></div>
+                    </div>
+                    <div class="dispositivos__box-card-back">
+                        <ul>
+                            <li>Tabletas Amazon Fire</li>
+                            <li>Celulares y tabletas Android</li>
+                            <li>iPhone y iPad</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dispositivos__box-card">
+                    <div class="dispositivos__box-card-front">
+                        <img src="./public/assets/img/consola.png" alt="consola">
+                        <h3>Consolas</h3>
+                        <div class="dispositivos__box-card-fondo"></div>
+                    </div>
+                    <div class="dispositivos__box-card-back">
+                        <ul>
+                            <li>PS4</li>
+                            <li>PS5</li>
+                            <li>Xbox One</li>
+                            <li>Xbox Series X</li>
+                            <li>Xbox Series S</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <h3>Disponible en tus dispositivos favoritos</h3>
-        <div>
-            <div>
-                <img src="./public/assets/img/tv.png" alt="televisores">
-                <title>TV</title>
-                <ul>
-                    <li>Amazon Fire TV</li>
-                    <li>Android TV</li>
-                    <li>Apple TV</li>
-                    <li>Chromecast</li>
-                    <li>LG</li>
-                    <li>Roku</li>
-                    <li>Samsung</li>
-                </ul>
-            </div>
-            <div>
-                <img src="./public/assets/img/pc.png" alt="pc">
-                <title>Computadoras</title>
-                <ul>
-                    <li>Chrome OS</li>
-                    <li>Mac OS</li>
-                    <li>PC Windows</li>
-                </ul>
-            </div>
-            <div>
-                <img src="./public/assets/img/mobil.png" alt="celulares">
-                <title>Celulares y tabletas</title>
-                <ul>
-                    <li>Tabletas Amazon Fire</li>
-                    <li>Celulares y tabletas Android</li>
-                    <li>iPhone y iPad</li>
-                </ul>
-            </div>
-            <div>
-                <img src="./public/assets/img/consola.png" alt="consola">
-                <title>Consolas</title>
-                <ul>
-                    <li>PS4</li>
-                    <li>PS5</li>
-                    <li>Xbox One</li>
-                    <li>Xbox Series X</li>
-                    <li>Xbox Series S</li>
-                </ul>
-            </div>
-        </div>
+    <footer id="condiciones">
         <img src="./public/assets/img/logo.svg" alt="logo chico">
         <nav>
             <ul>

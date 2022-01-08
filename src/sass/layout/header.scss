@@ -1,7 +1,7 @@
 //COMMENT ESTILO DEL HEADER
 
-@use "variables";
-@use "queries";
+@use "../util/variables";
+@use "../util/queries";
 
 header {
   position: sticky;
@@ -22,7 +22,7 @@ header {
       margin-left: variables.$nav-margin-logo;
       height: variables.$nav-height-logo;
       object-fit: scale-down;
-      transition: filter .8s;
+      transition: filter 2s;
 
       @include queries.media-down(sm){
         height:variables.$nav-height-logo-sm;

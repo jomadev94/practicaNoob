@@ -1,35 +1,44 @@
 "use strict";
-var Secciones;
-(function (Secciones) {
-    Secciones[Secciones["exclusivo"] = 0] = "exclusivo";
-    Secciones[Secciones["favoritos"] = 1] = "favoritos";
-    Secciones[Secciones["promocion"] = 2] = "promocion";
-    Secciones[Secciones["contacto"] = 3] = "contacto";
-})(Secciones || (Secciones = {}));
-//COMMENT FLECHAS PARA PASAR A LA SIG SECCION
-const flechasNavegacion = document.querySelectorAll(".seccion-flecha");
-//FUNCTION NAVEGA A LA SIGUIENTE SECCION
-function irSeccion(idSeccion) {
-    const offsetTop = document.getElementById(idSeccion).offsetTop;
-    scroll({
-        top: offsetTop,
-        behavior: "smooth",
-    });
-}
-//EVENT CLICK FLECHA DE SECCION
-flechasNavegacion.forEach((flecha, index) => {
-    const elem = flecha;
-    if (elem.tagName == "BUTTON") {
-        elem.addEventListener("click", () => {
-            irSeccion(Secciones[index]);
-        });
-    }
-});
 const header = document.querySelector("header");
 const seccionBreak = document.getElementById("principal");
+const toAnimate = document.querySelectorAll(".animate");
+const letters = document.querySelector(".promocion__anuncio-oferta-down");
+const cards = document.querySelector(".dispositivos__box");
+cards.addEventListener("click", (event) => {
+    const element = event.target;
+    console.log(element);
+    if (element && element.classList.contains("dispositivos__box-card")) {
+        console.log("ieeeeepaaaa");
+    }
+});
+letters.addEventListener("mouseover", (event) => {
+    const element = event.target;
+    if (element && element.tagName === "SPAN") {
+        element.classList.add("toAnimate");
+        setTimeout(() => {
+            element.classList.remove("toAnimate");
+        }, 1500);
+    }
+});
 const options = {
     rootMargin: "-80px"
 };
+const optionsAppear = {
+    // threshold:.6,
+    rootMargin: "-140px"
+};
+const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+    entries.forEach((entry) => {
+        entry.target.classList.add("appear");
+        if (!entry.isIntersecting) {
+            entry.target.classList.remove("appear");
+        }
+        // appearOnScroll.unobserve(entry.target);
+    });
+}, optionsAppear);
+toAnimate.forEach((elem) => {
+    appearOnScroll.observe(elem);
+});
 const breakObserver = new IntersectionObserver((entries, breakObserver) => {
     entries.forEach((entry) => {
         header.classList.remove("header-secciones");

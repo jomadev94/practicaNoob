@@ -1,5 +1,6 @@
-@use "../base/queries";
-@use "../base/variables";
+@use "../util/queries";
+@use "../util/variables";
+@use "../util/transiciones";
 
 .exclusivo__carousel {
   align-self: center;
@@ -7,7 +8,10 @@
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  // align-items: end;
+
+  &.animate{
+    @include transiciones.fade-in();
+  }
 
   @include queries.media-down(md) {
     width: 90%;
@@ -79,7 +83,8 @@
 }
 
 .exclusivo__carousel-content-pelicula {
-  min-width: calc(100% / variables.$cant-carousel - 1rem);
+
+  min-width: clamp(100px,100% / variables.$cant-carousel - 1rem,600px);
   margin-left: 1rem;
   position: relative;
   filter: grayscale(60%);
@@ -99,26 +104,12 @@
   }
 
   @include queries.media-down(md) {
-    min-width: calc(100% / variables.$cant-carousel-md - 1rem);
+    
+    min-width:clamp(100px,100% / variables.$cant-carousel-md - 1rem,600px);
   }
 
   @include queries.media-down(sm) {
-    min-width: calc(100% / variables.$cant-carousel-sm - 1rem);
-  }
-}
-
-.exclusivo__carousel-content-pelicula-overlay {
-  background-color: black;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  border-radius: variables.$borde-radio;
-  opacity: 30%;
-  z-index: 5;
-  transition: opacity 0.5s ease-out;
-
-  &:hover {
-    opacity: 0%;
+    min-width: clamp(100px,100% / variables.$cant-carousel-sm - 1rem,600px);
   }
 }
 

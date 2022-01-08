@@ -1,0 +1,48 @@
+@mixin fade-in {
+  opacity: 0;
+  transition: opacity ease-out 1s;
+
+  &.appear {
+    opacity: 1;
+  }
+}
+
+@mixin translate($axis, $value,$time:0.8s) {
+  opacity: 0;
+  transition: transform ease-in-out $time, opacity ease-in-out 1.5s;
+  @if $axis == "x" {
+    transform: translateX($value);
+  } @else {
+    transform: translateY($value);
+  }
+
+  &.appear {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@mixin translateRotate($axis, $value, $deg) {
+  opacity: 0;
+  transition: transform ease-in-out 4s, opacity ease-in-out 1.5s;
+  @if $axis == "x" {
+    transform: translateX($value) rotate3d(1, -1, 0, $deg);
+  } @else {
+    transform: translateY($value) rotate3d(1, -1, 0, $deg);
+  }
+
+  &.appear {
+    opacity: 1;
+    transform: rotate3d(1, -1, 0, 0deg);
+  }
+}
+
+@mixin desactivateTranslateRotate(){
+  opacity: 1;
+  transition:none;
+  transform: translateX(0) translateY(0) rotate3d(0, 0, 0, 0deg);
+
+  &.appear{
+    transform: none;
+  }
+}

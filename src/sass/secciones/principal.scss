@@ -1,8 +1,13 @@
-@use "../base/variables";
-@use "../animaciones";
-@use "../base/queries";
+@use "../util/variables";
+@use "../util/animaciones";
+@use "../util/queries";
+@use "../util/bottons";
 
 //COMMENT SECCION PRINCIPAL
+
+.principal{
+  height: variables.$principal-height;
+}
 
 .principal__fondo {
   position: fixed;
@@ -30,7 +35,7 @@
     background-color: rgba(0, 0, 0, 0.459);
     border-radius: variables.$borde-radio;
     padding: 2rem;
-    margin: 0rem 2rem 2rem 2rem;
+    margin-bottom: 2rem;
 
     @include queries.media-down(sm){
       max-width: variables.$principal-max-width-sm;
@@ -54,66 +59,18 @@
       justify-content: space-between;
 
       a {
-        text-decoration: none;
-        color: variables.$color-letra;
-        font-size: variables.$principal-fs-a;
-        border-radius: variables.$borde-radio;
-        padding: 1rem;
         margin-top: 0.8rem;
-        transition: ease-in 0.3s;
 
         &:first-child {
-          background: linear-gradient(
-            to right,
-            rgb(3, 11, 58),
-            variables.$color-opcion-principal
-          );
-
-          &:hover {
-            filter: brightness(150%);
-          }
+          @extend %botonPrincipal;
         }
 
         &:not(:first-child) {
-          background-color: black;
-
-          &:hover {
-            background-color: white;
-            color: black;
-          }
+          @extend %botonSecundario;
         }
 
       }
     }
-  }
-
-}
-
-.seccion-flecha {
-  position: absolute;
-  bottom: 0;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  padding: 1.6rem;
-  border-radius: 2rem;
-  background-color: rgba(0, 0, 0, 0.644);
-  background-size: auto;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  border: none;
-  margin-bottom: 2.5rem;
-  align-self: center;
-  display: inline-block;
-  background-image: url("/public/assets/img/flecha.svg");
-  animation: flecha-sig-seccion 0.5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: cubic-bezier(0.89, 0.72, 0.64, 0.93);
-  box-shadow: 5px 5px 10px 3px black;
-
-  @include queries.media-down(md){
-    display: none;
   }
 
 }

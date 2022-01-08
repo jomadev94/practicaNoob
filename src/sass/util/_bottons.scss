@@ -1,0 +1,76 @@
+@use "./queries";
+@use "./variables";
+
+%botonPrincipal {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: variables.$color-letra;
+  font-size: variables.$principal-fs-a;
+  border-radius: variables.$borde-radio;
+  padding: 1rem;
+  //   margin-top: 0.8rem;
+  transition: filter ease-in 0.3s;
+  background: linear-gradient(
+    to right,
+    rgb(1, 6, 31),
+    variables.$color-opcion-principal
+  );
+
+  &:hover {
+    filter: brightness(150%);
+  }
+}
+
+%botonSecundario {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: variables.$color-letra;
+  font-size: variables.$principal-fs-a;
+  border-radius: variables.$borde-radio;
+  padding: 1rem;
+  background-color: black;
+  transition: all ease-in-out .3s;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+.seccion-flecha {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.644);
+  background-size: auto;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border: none;
+  margin-bottom: 2.5rem;
+  background-image: url("/public/assets/img/flecha.svg");
+  animation: flecha-sig-seccion 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.89, 0.72, 0.64, 0.93);
+  box-shadow: 5px 5px 10px 3px black;
+  z-index: 50;
+
+  @include queries.media-down(md) {
+    display: none;
+  }
+}
+
+.flecha-box {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
